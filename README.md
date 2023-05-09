@@ -27,3 +27,6 @@ REST - Representational state transfer.In the REST architectural style, data and
 * PUT creates a new resource, which can be then deleted by using DELETE. GET retrieves the current state of a resource in some representation. POST transfers a new state onto a resource.
 #### 10. Defining request methods in restful web services
 In a restful web service, if we want to define a method with request mapings we use a stereo type annotation @RequestMapping(value="/user" method=RequestMethod.GET) on top of the method. In a simplified way spring also provides us simple annotations like @GetMapping, PostMapping etc. For example above get request can be added as @GetMapping("/user") 
+#### 11. Passing variables in URIs
+We use @PathVariable in method argument to pass the variables to method.
+![/assets/1.jpg]
