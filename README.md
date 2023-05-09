@@ -1,5 +1,5 @@
 # Microservices
-Here i would like to cover all required topics and quetions arise during development or in an interview in case of microservice development using Spring boot.
+Here i would like to cover all required topics and questions arise during development or in an interview in case of microservice development using Spring boot.
 #### 1. What is dependency Injection?
 IOC means giving the control back to framework. Spring framework uses IOC pattern to achieve DI. Instead of creating and calling the required dependent objects, spring framework takes the responsibility of creating all the required objects and make it available in the container.
 #### 2. What is Spring Initializer?
@@ -41,3 +41,10 @@ When the data is not mandatory or optional to a request, then we pass the data u
 #### 15. Controller Advice
 Controller advice is part of AOP used to define cross cutting concerns. Here we are using it to form a proper response format in case of exceptions. For any kind of exceptions, we need not handle them inside our controller. We can create an advice outside the controller and that takes care of all the exceptions.
 ![Request Params](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/exceptionHandler.JPG)
+#### 16. Content Negotiation - Defining response type of the API.
+We can use **produces** property to define the response type produced by the service method. But it is difficult to maintain it at each method level. So for achieving this there are different ways supported by spring framework. We can achieve this by adding some configurations at application level. We will create a configuration class which extends WebMvcConfigurer and we need to add the dependencies in pom.xml to support xml conversion.
+* Parameters
+	We can define in the url parameters to decide on the response type.
+* HttpHeaders
+	We can pass the type in the http headers using contentType.
+![Content Negotiation](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/contentNegotiation.JPG)
