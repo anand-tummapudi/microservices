@@ -40,3 +40,4 @@ When the data is not mandatory or optional to a request, then we pass the data u
 @Controller annotation is used to create a service where as @RestController is used to create Restful service. Restful service is nothing but the @Controller + @ResponseBody.
 #### 15. Controller Advice
 Controller advice is part of AOP used to define cross cutting concerns. Here we are using it to form a proper response format in case of exceptions. For any kind of exceptions, we need not handle them inside our controller. We can create an advice outside the controller and that takes care of all the exceptions.
+![Request Params](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/exceptionHandler.JPG)

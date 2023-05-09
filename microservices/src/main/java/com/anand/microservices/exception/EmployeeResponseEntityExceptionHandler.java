@@ -18,5 +18,4 @@ public class EmployeeResponseEntityExceptionHandler extends ResponseEntityExcept
         ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,exception.getMessage());
     return message;
     }
-
 }
