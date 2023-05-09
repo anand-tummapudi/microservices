@@ -33,5 +33,8 @@ We use @PathVariable in method argument to pass the variables to method. When th
 #### 12. Request Params
 When the data is not mandatory or optional to a request, then we pass the data using request parameters. Request parameters are passed in the url using the same name defined in the url after ? ex: http://webservice/user?name=name. If we want to make any request parameter not mandatory to be passed in the URI, we just add the property as required=false.
 ![Request Params](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/requestParam.JPG)
-#### 13. Rest Controller
+#### 13. Request Body
+We can use @RequestBody annotation to pass an object as input to a service method. Request body type can be defined using JSON or XML or text while posting the request from service.
+![Request Params](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/requestBody.JPG)
+#### 14. Rest Controller
 @Controller annotation is used to create a service where as @RestController is used to create Restful service. Restful service is nothing but the @Controller + @ResponseBody.
