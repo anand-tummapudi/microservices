@@ -27,4 +27,9 @@ public class HomeController {
         return "The path variable is:"+id+" and :"+name;
     }
 
+    @GetMapping("/requestParam")
+    public String requestPrams(@RequestParam String name){
+        return "Your name is:"+name;
+    }
+
 }
