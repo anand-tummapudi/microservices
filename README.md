@@ -29,4 +29,4 @@ REST - Representational state transfer.In the REST architectural style, data and
 In a restful web service, if we want to define a method with request mapings we use a stereo type annotation @RequestMapping(value="/user" method=RequestMethod.GET) on top of the method. In a simplified way spring also provides us simple annotations like @GetMapping, PostMapping etc. For example above get request can be added as @GetMapping("/user") 
 #### 11. Passing variables in URIs
 We use @PathVariable in method argument to pass the variables to method.
-![alt text]([http://url/to](https://github.com/anand-tummapudi/microservices/assets/1.jpg)
+![alt text](https://github.com/anand-tummapudi/microservices/blob/main/assets/1.JPG)
