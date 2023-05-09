@@ -18,7 +18,7 @@ public class EmployeeResponseEntityExceptionHandler extends ResponseEntityExcept
         ErrorMessage message = new ErrorMessage(HttpStatus.NOT_FOUND,exception.getMessage());
     return message;
     }
- 
+
     @ExceptionHandler(Exception.class)
     @ResponseBody
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

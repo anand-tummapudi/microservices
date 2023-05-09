@@ -48,3 +48,7 @@ We can use **produces** property to define the response type produced by the ser
 * HttpHeaders
 	We can pass the type in the http headers using contentType.
 ![Content Negotiation](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/contentNegotiation.JPG)
+#### 17. Data Filtering
+While sending response, if we don't want to send some of the data over response then we can use **@JsonIgnore** to achieve this. This will be added in POJO at property level. If we want to add it for multiple properties we can add **@JsonIgnoreProperties** at class level and add all required properties.
+ - ex: @JsonIgnoreProperties({"department"})
+![JSON ignore](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/jsonIgnore.JPG)

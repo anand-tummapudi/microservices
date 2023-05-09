@@ -1,11 +1,14 @@
 package com.anand.microservices.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class Employee {
 
     private String employeeId;
     private String firstName;
     private String lastName;
     private String emailId;
+    @JsonIgnore
     private String department;
 
     public Employee(String employeeId, String firstName, String lastName, String emailId, String department) {
