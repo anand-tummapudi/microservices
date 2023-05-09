@@ -1,5 +1,6 @@
 package com.anand.microservices.service;
 
+import com.anand.microservices.exception.EmployeeNotFoundException;
 import com.anand.microservices.model.Employee;
 import org.springframework.stereotype.Service;
 
@@ -17,5 +18,19 @@ public class EmployeeServiceImpl implements EmployeeService{
         }
         employeeList.add(employee);
         return employee;
+    }
+
+    @Override
+    public List<Employee> getAllEmployees() {
+        return employeeList;
+    }
+
+    @Override
+    public Employee getEmployeeById(String employeeId) {
+        return employeeList
+                .stream()
+                .filter(employee->employee.getEmployeeId().equals(employeeId))
+                .findFirst()
+                .orElseThrow(()->new EmployeeNotFoundException("Employee Not Found with Id:"+employeeId));
     }
 }
