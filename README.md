@@ -63,7 +63,7 @@ Object relational mapping framework is used to map the relations/tables in a rel
 - The basic building blocks while implementing JPA are ..
  *Entity - nothing but a pojo mapping to a table
  *Id - @Id value, a pojo property representing an unique id for a row in the entity
- * A repository class which extends JPARepository with arguments <Entity name, Id>
+ * A repository class which extends JPARepository with arguments <Entity name, data type of the Id>
  * To add ORM support, we need to add respective dependencies in our pom.xml file.If you do not have idea which dependency to add, it is always best practice or easy to search the dependency in **start.spring.io** and add the dependency.
 #### 20. Diferent scopes in pom.xml dependencies
 - compile - This is the default scope and indicates that the libraries are required during build and deploy.

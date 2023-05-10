@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/employees")
-public class EmployeeController {
+@RequestMapping("/v2/employees")
+public class EmployeeV2Controller {
 
-    @Qualifier("EmployeeServiceImpl")
     @Autowired
+    @Qualifier("EmployeeV2ServiceImpl")
     private EmployeeService employeeService;
 
     @PostMapping("/save")
