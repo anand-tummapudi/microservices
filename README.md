@@ -58,3 +58,18 @@ This feature is importent when we are exposing our services to outside world. Th
 - resourceURI - passing the version of API in path variables.
 - query parameters - passing the version of api in request parameters
 - http headers - passing the version of api in http headers.
+#### 19. ORM - JPA
+Object relational mapping framework is used to map the relations/tables in a relatinal database with POJOs. By default spring supports hibernate implemented in JPA. Spring also supports non relational databases like MongoDb by extending MangoRepository, this internally will extend JPA repository only.
+- The basic building blocks while implementing JPA are ..
+ *Entity - nothing but a pojo mapping to a table
+ *Id - @Id value, a pojo property representing an unique id for a row in the entity
+ * A repository class which extends JPARepository with arguments <Entity name, Id>
+ * To add ORM support, we need to add respective dependencies in our pom.xml file.If you do not have idea which dependency to add, it is always best practice or easy to search the dependency in **start.spring.io** and add the dependency.
+#### 20. Diferent scopes in pom.xml dependencies
+- compile - This is the default scope and indicates that the libraries are required during build and deploy.
+- provided - It is used during build and test the project. They are also required to run, but should not exported, because the dependency will be provided by the runtime, for instance, by servlet container or application server.
+- runtime - These are not needed to build, but are part of the classpath to test and run the project.
+- test - These are not needed to build and run the project. They are needed to compile and run the unit tests.
+- system - These are similar to ones with scope **provided**. The only difference is system dependencies are not retrieved from remote repository. They are present under project’s subdirectory and are referred from there.
+ 
+ 
