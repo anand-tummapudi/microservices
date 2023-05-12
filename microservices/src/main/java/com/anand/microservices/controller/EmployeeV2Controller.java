@@ -12,7 +12,7 @@ import java.util.List;
 @RequestMapping("/v2/employees")
 public class EmployeeV2Controller {
 
-    @Autowired
+    @Autowired(required = true)
     @Qualifier("EmployeeV2ServiceImpl")
     private EmployeeService employeeService;
 

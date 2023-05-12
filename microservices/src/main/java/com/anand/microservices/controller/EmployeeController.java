@@ -13,7 +13,7 @@ import java.util.List;
 public class EmployeeController {
 
     @Qualifier("EmployeeServiceImpl")
-    @Autowired
+    @Autowired(required = true)
     private EmployeeService employeeService;
 
     @PostMapping("/save")

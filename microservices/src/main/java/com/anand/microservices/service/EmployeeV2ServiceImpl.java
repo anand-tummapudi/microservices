@@ -5,12 +5,14 @@ import com.anand.microservices.model.Employee;
 import com.anand.microservices.repository.EmployeeRepository;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@Qualifier("EmployeeV2ServiceImpl")
 public class EmployeeV2ServiceImpl implements EmployeeService{
 
     @Autowired

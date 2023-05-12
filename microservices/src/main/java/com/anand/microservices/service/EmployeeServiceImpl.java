@@ -2,6 +2,7 @@ package com.anand.microservices.service;
 
 import com.anand.microservices.exception.EmployeeNotFoundException;
 import com.anand.microservices.model.Employee;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.UUID;
 
 @Service
+@Qualifier("EmployeeServiceImpl")
 public class EmployeeServiceImpl implements EmployeeService{
     List<Employee> employeeList = new ArrayList<>();
 

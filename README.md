@@ -71,5 +71,7 @@ Object relational mapping framework is used to map the relations/tables in a rel
 - runtime - These are not needed to build, but are part of the classpath to test and run the project.
 - test - These are not needed to build and run the project. They are needed to compile and run the unit tests.
 - system - These are similar to ones with scope **provided**. The only difference is system dependencies are not retrieved from remote repository. They are present under project’s subdirectory and are referred from there.
+#### 21. What is @Qualifier and how to use it.
+If more than one bean of the same type is available in the container, the framework will throw NoUniqueBeanDefinitionException, indicating that more than one bean is available for autowiring. By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected. While we have multiple implementation classes of same interface and while autowiring the service instance, compiler will confuse which one to inject. So we need to add @Qualifier marker with qualified name in the implementation class injection and even while using/autowiring the same service inside the controller.
  
  
