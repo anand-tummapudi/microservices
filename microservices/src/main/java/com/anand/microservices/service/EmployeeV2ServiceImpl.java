@@ -9,7 +9,9 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Service
 @Qualifier("EmployeeV2ServiceImpl")
@@ -32,16 +34,29 @@ public class EmployeeV2ServiceImpl implements EmployeeService{
 
     @Override
     public List<Employee> getAllEmployees() {
-        return null;
+        List<EmployeeEntity> employeeEntityList = employeeRepository.findAll();
+
+        List<Employee> employeeList = employeeEntityList
+                                    .stream()
+                                    .map(employeeEntity -> {
+                                        Employee employee = new Employee();
+                                        BeanUtils.copyProperties(employeeEntity,employee);
+                                        return employee;
+                                    }).collect(Collectors.toList());
+        return employeeList;
     }
 
     @Override
     public Employee getEmployeeById(String employeeId) {
-        return null;
+        EmployeeEntity employeeEntity = employeeRepository.findById(employeeId).get();
+        Employee employee = new Employee();
+        BeanUtils.copyProperties(employeeEntity,employee);
+        return employee;
     }
 
     @Override
     public String deleteEmployeById(String employeeId) {
-        return null;
+        employeeRepository.deleteById(employeeId);
+        return "Employee with Id:"+employeeId+" has been deleted.";
     }
 }

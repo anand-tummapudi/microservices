@@ -11,6 +11,8 @@ public class Employee {
     @JsonIgnore
     private String department;
 
+    public Employee(){}
+
     public Employee(String employeeId, String firstName, String lastName, String emailId, String department) {
         this.employeeId = employeeId;
         this.firstName = firstName;

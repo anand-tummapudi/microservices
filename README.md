@@ -73,5 +73,21 @@ Object relational mapping framework is used to map the relations/tables in a rel
 - system - These are similar to ones with scope **provided**. The only difference is system dependencies are not retrieved from remote repository. They are present under project’s subdirectory and are referred from there.
 #### 21. What is @Qualifier and how to use it.
 If more than one bean of the same type is available in the container, the framework will throw NoUniqueBeanDefinitionException, indicating that more than one bean is available for autowiring. By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected. While we have multiple implementation classes of same interface and while autowiring the service instance, compiler will confuse which one to inject. So we need to add @Qualifier marker with qualified name in the implementation class injection and even while using/autowiring the same service inside the controller.
+#### 22. What are java micro services.
+Java microservices are a set of software applications written in the Java programming language designed for limited scope that work with each other to form a bigger solution.
+Micro services are maintained by using two different repositories. The advantage with micro services is we can develop each application using different technologies like java,python,dotnet etc. and we can communicate with each other using a protocol like HTTP. We can use broker architecture or messaging system to pass the data between two different services.
+1. **Mono Repo** - All the services are different but are deployed in same repository. Advantage is we can maintain all the sources in the single repository with different folders. But the issue with this architecture is that, deployement using CI/CD pipeline. There are tools which doesn't allow multiple deployments from same repository and we need to add workarounds to maintain it.
+2. **Poly Repo** - Each service will be deployed in an independent repository. We maintain independent repository and deploytment and working would be easy. But the problem here is that we need to clone all the repositories separately and maintain the code.
+#### 23. Microservice patterns.
+1. **API Gateway Pattern**: A single entry point for all client requests, which then routes those request to the appropriate microservices.
+2. **Circuit Breaker Pattern**: This pattern is used to handle failures in a microservice architecture. When a microservice fails or become unresponsive, the circuit breaker tips and redirects requests to a fallback service.
+3. **Service Registry Pattern**: THis pattern is used to keep track of all the services in a microservice architecture. The registry acts as a central directory for service discovery.
+4. **Service Mesh Pattern**: This pattern in adding a layer of infrastructure between microservices to handle cross-cutting concerns such as service discovery, load balancing and security.
+5. **Even Driven Architecture Pattern**: This pattern involves in using events to communicate between microservices. Each service can publish events and subscribe to events published by another service.
+6. **Saga Pattern**: This pattern is used to manage transactions that span multiple microservices. It involves breaking the transaction into smaller, individual steps and using compensating actions to undo completed steps if an error occurs.
+7. **Bulkhead Pattern**: This pattern is used to isolate failures in a microservice architecture. Each microservice is placed in a separate container, so if one micro service fails, it does not affect other microservices.
+8. **Sidecar Pattern**: This pattern involves in deploying a separate container alongside each microservice to handle cross-cutting concerns such as logging, monitoring and security.
+9. **CQRS Pattern**: CQRS stands for Command and Query Responsibility Segregation. A pattern that involves separating the read and write models in a microservice architecture. The read model is optimized for querying data, while the write model is optimized for updating data.
+10. **Strangler Pattern**: This pattern involves in gradually replacing a monolithic application with microservices by gradually adding new microservices and removing functionality from monolith.
  
  
