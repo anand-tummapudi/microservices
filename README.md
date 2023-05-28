@@ -52,7 +52,6 @@ We can use **produces** property to define the response type produced by the ser
 While sending response, if we don't want to send some of the data over response then we can use **@JsonIgnore** to achieve this. This will be added in POJO at property level. If we want to add it for multiple properties we can add **@JsonIgnoreProperties** at class level and add all required properties.
  - ex: @JsonIgnoreProperties({"department"})
 ![JSON ignore](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/jsonIgnore.JPG)
-
 #### 18. API Versioning
 This feature is importent when we are exposing our services to outside world. There will be new changes or requirements coming in the existing apis. So if we change the current running api, it may impact all the clients consuming the service. To overcome this problem, we can keep the current running version and make the latest changes in a new version and expose it.
 - resourceURI - passing the version of API in path variables.
@@ -84,7 +83,7 @@ Micro services are maintained by using two different repositories. The advantage
 3. **Service Registry Pattern**: This pattern is used to keep track of all the services in a microservice architecture. The registry acts as a central directory for service discovery.
 Eureka server is one example for implementing service registry. 
 4. **Service Mesh Pattern**: This pattern in adding a layer of infrastructure between microservices to handle cross-cutting concerns such as service discovery, load balancing and security.
-5. **Even Driven Architecture Pattern**: This pattern involves in using events to communicate between microservices. Each service can publish events and subscribe to events published by another service.
+5. **Event Driven Architecture Pattern**: This pattern involves in using events to communicate between microservices. Each service can publish events and subscribe to events published by another service.
 6. **Saga Pattern**: This pattern is used to manage transactions that span multiple microservices. It involves breaking the transaction into smaller, individual steps and using compensating actions to undo completed steps if an error occurs.
 7. **Bulkhead Pattern**: This pattern is used to isolate failures in a microservice architecture. Each microservice is placed in a separate container, so if one micro service fails, it does not affect other microservices.
 8. **Sidecar Pattern**: This pattern involves in deploying a separate container alongside each microservice to handle cross-cutting concerns such as logging, monitoring and security.
