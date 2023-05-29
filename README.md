@@ -92,5 +92,7 @@ Eureka server is one example for implementing service registry.
 #### 24. What is Okta Auth?
 The Okta Authentication API provides operations to authenticate users, perform multifactor enrollment and verification, recover forgotten passwords, and unlock accounts. It can be used as a standalone API to provide the identity layer on top of your existing application, or it can be integrated with the Okta Sessions API to obtain an Okta session cookie and access apps within Okta.
 [Okta API](https://developer.okta.com/docs/reference/api/authn/)
- 
- 
+#### 25. What is service registry and How to create it?
+ * Service registry is a database used to keep track of the available instances of each micro service in an application. This registry needs to be updated each time a new service comes online and a service becomes unavailable.
+ * To create service registry we generate application with 2 dependencies i.Spring cloud and 2. Eruka server.
+ * In applications **RegistryApplication.java file, enable Ereka server.
