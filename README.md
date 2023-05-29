@@ -98,3 +98,4 @@ The Okta Authentication API provides operations to authenticate users, perform m
  * In project's **RegistryApplication.java file, enable Eureka server by adding @EnableEurekaServer that is service registry server.
  * In application.propertiesor application.yaml file, add the configurations.
    ![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/RegistryConfig.JPG)
+ * In our existing micro services, we needto implement service registry client. Add Eureka server client dependency in micro service application and add the required configurations to describe which server to register in application.properties file.
