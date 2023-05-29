@@ -95,4 +95,6 @@ The Okta Authentication API provides operations to authenticate users, perform m
 #### 25. What is service registry and How to create it?
  * Service registry is a database used to keep track of the available instances of each micro service in an application. This registry needs to be updated each time a new service comes online and a service becomes unavailable.
  * To create service registry we generate application with 2 dependencies i.Spring cloud and 2. Eruka server.
- * In applications **RegistryApplication.java file, enable Ereka server.
+ * In project's **RegistryApplication.java file, enable Eureka server by adding @EnableEurekaServer that is service registry server.
+ * In application.propertiesor application.yaml file, add the configurations.
+   ![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/RegistryConfig.JPG)
