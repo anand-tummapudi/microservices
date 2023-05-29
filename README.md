@@ -99,3 +99,5 @@ The Okta Authentication API provides operations to authenticate users, perform m
  * In application.propertiesor application.yaml file, add the configurations.
    ![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/RegistryConfig.JPG)
  * In our existing micro services, we needto implement service registry client. Add Eureka server client dependency in micro service application and add the required configurations to describe which server to register in application.properties file.
+ #### 26. How to remove redundant configuration of service registry registration in micro service architecture?
+ **ConfigServer**- When we have multiple micro services, we need to add the service registry client configuration in each service. This is redundant as we are using same configuration in all the services. So we can have a common config server which is a config server application with config server dependency. Using this, we can retrieve the common configurations from git/svn or any other common repository.
