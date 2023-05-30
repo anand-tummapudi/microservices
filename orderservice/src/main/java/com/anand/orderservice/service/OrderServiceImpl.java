@@ -1,5 +1,6 @@
 package com.anand.orderservice.service;
 
+import com.anand.orderservice.external.client.ProductService;
 import com.anand.orderservice.model.Order;
 import com.anand.orderservice.model.OrderRequest;
 import com.anand.orderservice.repository.OrderRepository;
@@ -16,6 +17,9 @@ public class OrderServiceImpl implements OrderService{
     @Autowired
     private OrderRepository orderRepository;
 
+    @Autowired
+    private ProductService productService;
+
     @Override
     public long placeOrder(OrderRequest orderRequest) {
         // Order Entity - Save the data with order status created.
@@ -30,6 +34,9 @@ public class OrderServiceImpl implements OrderService{
                 .productId(orderRequest.getProductId()).build();
         order = orderRepository.save(order);
         log.info("Order placed successfully with order id:"+order.getId());
+
+        productService.reduceQuantity(order.getProductId(),order.getQuantity());
+
         return order.getId();
     }
 }
