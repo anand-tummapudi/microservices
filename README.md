@@ -103,4 +103,14 @@ The Okta Authentication API provides operations to authenticate users, perform m
  **ConfigServer**- When we have multiple micro services, we need to add the service registry client configuration in each service. This is redundant as we are using same configuration in all the services. So we can have a common config server which is a config server application with config server dependency. Using this, we can retrieve the common configurations from git/svn or any other common repository.
  #### 27. Feign client
  Feign client is a rest client to call the apis using declarative function. Either we can use Feign client or Rest template to call the services. We need to add the Fiegn client dependency in the requied serice application and in ServiceApplication java file, we need to enable the fien clients by adding the annotation @EnableFiegnClients. Create a service file interface and annotate it with the @FiegnClient with qualified service names and path. Define the required methods to be called from the service with the qualified annotations. Now we are ready to autowire the service and trigger the methods from the service.
-![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/FiegnClient.JPG) 
+![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/FiegnClient.JPG)
+ #### 28. Error Decoder Handling
+ While calling the external services, if there is any exception from the service we will not receive proper messge but exception. The actual error message would be in the service origin server. So we need to handle this by adding error decoder.
+ We will create a class which implements ErrorDecoder interface comes from the fiegn package and implement the decode method.
+ #### 29. Zipkin and Sleuth
+ These are distributed log tracing tools. When we hve multiple services, it is difficult to understand and manage the logging.These distributed log tracing tools helps us in maintaining and understanding the logs.
+ * Install Zipkin - Zipkin can be installed in multiple ways but the docker approach is clean and easy.
+ * Install Docker - 
+ * Once zipkin is installed, add dependencies (zipkin and slueth) in your project to connect to the zipkin server.
+ * After adding the dependencies, if we run the applications then traceid and spanid will be added for in the logs along with the log messages. 
+ 
