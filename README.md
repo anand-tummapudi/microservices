@@ -74,7 +74,7 @@ Object relational mapping framework is used to map the relations/tables in a rel
 If more than one bean of the same type is available in the container, the framework will throw NoUniqueBeanDefinitionException, indicating that more than one bean is available for autowiring. By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected. While we have multiple implementation classes of same interface and while autowiring the service instance, compiler will confuse which one to inject. So we need to add @Qualifier marker with qualified name in the implementation class injection and even while using/autowiring the same service inside the controller.
 #### 22. What are java micro services.
 Java microservices are a set of software applications written in the Java programming language designed for limited scope that work with each other to form a bigger solution.
-Micro services are maintained by using two different repositories. The advantage with micro services is we can develop each application using different technologies like java,python,dotnet etc. and we can communicate with each other using a protocol like HTTP. We can use broker architecture or messaging system to pass the data between two different services.
+Micro services are maintained by using two different repositories types. The advantage with micro services is we can develop each application using different technologies like java,python,dotnet etc. and we can communicate with each other using a protocol like HTTP. We can use broker architecture or messaging system to pass the data between two different services.
 1. **Mono Repo** - All the services are different but are deployed in same repository. Advantage is we can maintain all the sources in the single repository with different folders. But the issue with this architecture is that, deployement using CI/CD pipeline. There are tools which doesn't allow multiple deployments from same repository and we need to add workarounds to maintain it.
 2. **Poly Repo** - Each service will be deployed in an independent repository. We maintain independent repository and deploytment and working would be easy. But the problem here is that we need to clone all the repositories separately and maintain the code.
 #### 23. Microservice patterns.
@@ -102,15 +102,33 @@ The Okta Authentication API provides operations to authenticate users, perform m
  #### 26. How to remove redundant configuration of service registry registration in micro service architecture?
  **ConfigServer**- When we have multiple micro services, we need to add the service registry client configuration in each service. This is redundant as we are using same configuration in all the services. So we can have a common config server which is a config server application with config server dependency. Using this, we can retrieve the common configurations from git/svn or any other common repository.
  #### 27. Feign client
- Feign client is a rest client to call the apis using declarative function. Either we can use Feign client or Rest template to call the services. We need to add the Fiegn client dependency in the requied serice application and in ServiceApplication java file, we need to enable the fien clients by adding the annotation @EnableFiegnClients. Create a service file interface and annotate it with the @FiegnClient with qualified service names and path. Define the required methods to be called from the service with the qualified annotations. Now we are ready to autowire the service and trigger the methods from the service.
+ Feign client is a rest client to call the apis using declarative function. Either we can use Feign client or Rest template to call the services. We need to add the Fiegn client dependency in the requied service application and in ServiceApplication java file, we need to enable the fien clients by adding the annotation @EnableFiegnClients. Create a service file interface and annotate it with the @FiegnClient with qualified service names and path. Define the required methods to be called from the service with the qualified annotations. Now we are ready to autowire the service and trigger the methods from the service.
 ![Registry Configurations](https://github.com/anand-tummapudi/microservices/blob/main/assets/images/FiegnClient.JPG)
  #### 28. Error Decoder Handling
  While calling the external services, if there is any exception from the service we will not receive proper messge but exception. The actual error message would be in the service origin server. So we need to handle this by adding error decoder.
  We will create a class which implements ErrorDecoder interface comes from the fiegn package and implement the decode method.
  #### 29. Zipkin and Sleuth
- These are distributed log tracing tools. When we hve multiple services, it is difficult to understand and manage the logging.These distributed log tracing tools helps us in maintaining and understanding the logs.
+ These are distributed log tracing tools. When we have multiple services, it is difficult to understand and manage the logging.These distributed log tracing tools helps us in maintaining and understanding the logs.
  * Install Zipkin - Zipkin can be installed in multiple ways but the docker approach is clean and easy.
  * Install Docker - 
  * Once zipkin is installed, add dependencies (zipkin and slueth) in your project to connect to the zipkin server.
- * After adding the dependencies, if we run the applications then traceid and spanid will be added for in the logs along with the log messages. 
+ * After adding the dependencies, if we run the applications then traceid and spanid will be added in the logs along with the log messages.
+#### 30. How to build resilient micro services using fault tolerant patterns.
+* Fault tolerance is nothing but how the system responds in case of a failure. Failure can be of any type and the Causes of cascading failures in a distributed system are...
+	i. Slow dependencies
+	ii. Flaky dependencies
+	iii. Services that are down
+	iv. Un expected peak traffic
+* Resilience - Resilience is how many faults a system can tolerate and how the system bounce back in case of failures.
+* Retries with backoff - 
+``` int waitinMillins  = 20000;
+	Thread.sleep(waitinMillins);
+	switch(response.StatusCode){
+		case HttpStatusCode.Ok:
+			 retry = false;
+			 break;
+		case HttpStatusCode.GatewayTimeOut:
+			 retry = true;
+			 break;
+	}```
  
