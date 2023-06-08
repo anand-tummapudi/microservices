@@ -115,10 +115,11 @@ The Okta Authentication API provides operations to authenticate users, perform m
  * After adding the dependencies, if we run the applications then traceid and spanid will be added in the logs along with the log messages.
 #### 30. How to build resilient micro services using fault tolerant patterns.
 * Fault tolerance is nothing but how the system responds in case of a failure. Failure can be of any type and the Causes of cascading failures in a distributed system are...
-	i. Slow dependencies
-	ii. Flaky dependencies
-	iii. Services that are down
-	iv. Un expected peak traffic
+i. Slow dependencies
+ii. Flaky dependencies
+iii. Services that are down
+iv. Un expected peak traffic
+
 * Resilience - Resilience is how many faults a system can tolerate and how the system bounce back in case of failures.
 * Retries with backoff - 
 ``` int waitinMillins  = 20000;
