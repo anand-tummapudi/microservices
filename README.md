@@ -169,3 +169,7 @@ Grafana allows you to bring data from various data sources like Elastic search, 
 * To enable splunk logs, we need to add splunk configurations including server,index etc. Also need to add splunk libraries in our pom.xml file.
 * We can search the logs using the index we have configured and a keyword of our choice. We can also filter the logs timely like last 15 mins, last one hour, one week or one month etc.
 * Splunk also supports configuring the alerts based on the criteria. In Settings, we need to create the criteria and configure the SMTP details. So that when the criteria matches, alerts will be triggered to the configured mail id.
+
+#### 36. Spring and JPA Transactions
+* **@Transactional** - With transactions configured, we can now annotate a bean with @transactional either at the class or method level.This annotation supports further configurations likepropagation type, isolation level, timeout for the operation, readonly flag and also the rollback rules of the transaction.
+* **@EnableTransactionManagement** - Spring introduced this annotation to use in a configuration class to enable transactional support.If we are using spring boot and have a spring-data or spring-tx dependencies on the class path, then transaction management will be enabled by defult.
