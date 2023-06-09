@@ -171,5 +171,8 @@ Grafana allows you to bring data from various data sources like Elastic search, 
 * Splunk also supports configuring the alerts based on the criteria. In Settings, we need to create the criteria and configure the SMTP details. So that when the criteria matches, alerts will be triggered to the configured mail id.
 
 #### 36. Spring and JPA Transactions
-* **@Transactional** - With transactions configured, we can now annotate a bean with @transactional either at the class or method level.This annotation supports further configurations likepropagation type, isolation level, timeout for the operation, readonly flag and also the rollback rules of the transaction.
+* **@Transactional** - With transactions configured, we can now annotate a bean with @transactional either at the class or method level.This annotation supports further configurations likepropagation type, isolation level, timeout for the operation, readonly flag and also the rollback rules of the transaction. By default rollback happens for runtime and unchecked exceptions only. The checked exceptions does not trigger a rollback. However we can configure this behavior with the rollbackFor and noRollbackFor parameters.Only public methods should be annotated with @Transactional. Methods of any other visibility would be simply ignored. 
+
 * **@EnableTransactionManagement** - Spring introduced this annotation to use in a configuration class to enable transactional support.If we are using spring boot and have a spring-data or spring-tx dependencies on the class path, then transaction management will be enabled by defult.
+
+* At high level, spring creates proxies for all the classes annotated with @Transactional either on the class or any of the methods. 
