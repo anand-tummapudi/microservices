@@ -122,7 +122,8 @@ iv. Un expected peak traffic
 
 * Resilience - Resilience is how many faults a system can tolerate and how the system bounce back in case of failures.
 * Retries with backoff - 
-``` int waitinMillins  = 20000;
+``` 
+int waitinMillins  = 20000;
 	Thread.sleep(waitinMillins);
 	switch(response.StatusCode){
 		case HttpStatusCode.Ok:
@@ -131,7 +132,8 @@ iv. Un expected peak traffic
 		case HttpStatusCode.GatewayTimeOut:
 			 retry = true;
 			 break;
-	}```
+	}
+```
 #### 31. Resilience4j
 	* Resilience4j is an alternative for hystrix server which helps in fault tolerence of our micro service application.
 	* Resilience4j features are Circuit breaker (fault tolerance), Rate Limiter (block too frequent requests), Time Limiter (Set time limit when calling remote operation), Retry mechanism (Automatically retry a failed remote operation), Bulkhead(Avoid too many concurrent requests), Cache(Store ), Cache(Store results of costly remote operations).
