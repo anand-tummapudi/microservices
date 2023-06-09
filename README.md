@@ -132,17 +132,19 @@ int waitinMillins  = 20000;
 		case HttpStatusCode.GatewayTimeOut:
 			 retry = true;
 			 break;
-	}
-```
+	}```
+	
 #### 31. Resilience4j
+
 	* Resilience4j is an alternative for hystrix server which helps in fault tolerence of our micro service application.
 	* Resilience4j features are Circuit breaker (fault tolerance), Rate Limiter (block too frequent requests), Time Limiter (Set time limit when calling remote operation), Retry mechanism (Automatically retry a failed remote operation), Bulkhead(Avoid too many concurrent requests), Cache(Store ), Cache(Store results of costly remote operations).
 	* In circuit breaker there are 3 states available closed, open and half open. Closed means, electricity is flowing in the circuuits and it is fine. When we have multiple requests and there is failure of more than 50%(the created treshold value), in such case we the state will move to open and give alets that there is an issue with the servic. If the requests are failing, then the state will changeto open and keep checking for the service to come back. Once the issue is resolved and the responses are coming, then the state will again change to closed.
 	* To work with resilience4j, we need to add 3 dependencies aop, actuator and resilience4j apis. Actuator is to get the health metrics of the service, aop is to send the captured metrics and resilience api is to implement the circutir breaker.
+	
 	```
 		We need to annnotate with the Circuit breaker service as below.
-		@CircuitBreaker(name = CERCUITE_BREAKER_SERVICE.fallbackMethod = "getAllAvailableProducts")
-	```
+		@CircuitBreaker(name = CERCUITE_BREAKER_SERVICE.fallbackMethod = "getAllAvailableProducts")```
+	
 	* In our application.yaml file, we need to enable all circuit breakers.
 	* Configure resilience4j.circuitbreaker in application.yaml file.
 	
@@ -150,17 +152,20 @@ int waitinMillins  = 20000;
 Micrometer provides a simple facade to integrate actuator metrics with externl monitoring system and it allows us to instrument your JVM based application. It supports several monitoring systems like Netflix Atlas, AWS cloud watch, Datadog, Influx data, SignalFX, Graphite, Wavefront, Prometheus etc. 
 	
 #### 33. Prometheus
+
 	Prometheus is an opensource monitoring system that was originally built by SoundCloud. It consist of the following core components.
 	* A data scraper that pulls metrics data over HTTP periodically at a configured interval.
 	* A time series database to store all metrics data.
 	* A simple user interface where you can visualize, query and monitor all the metrics.
 
 #### 34. Grafana
-	Grafana allows you to bring data from various data sources like Elastic search, Prometheus, Graphite, InfluxDB etc. and visualize them with beautiful graphs. It also lets you set alert rules based on your metrics data. When an alert changes state, it can notify you over email, slack, or various other channels.
+
+Grafana allows you to bring data from various data sources like Elastic search, Prometheus, Graphite, InfluxDB etc. and visualize them with beautiful graphs. It also lets you set alert rules based on your metrics data. When an alert changes state, it can notify you over email, slack, or various other channels.
 
 #### 35. Splunk 
-	* Splunk is an innovative technology which searches and indexes log files and helps organizations derive insights from the data. A main benefit of Splunk is that it uses indexes to store data, and so does not require a separate database to store its information.
-	* Using splunk we can analyze logs in real time environment in web interface. Apart from logs splunk also provides many other features like monitoring, alerts etc.
-	* To enable splunk logs, we need to add splunk configurations including server,index etc. Also need to add splunk libraries in our pom.xml file.
-	* We can search the logs using the index we have configured and a keyword of our choice. We can also filter the logs timely like last 15 mins, last one hour, one week or one month etc.
-	* Splunk also supports configuring the alerts based on the criteria. In Settings, we need to create the criteria and configure the SMTP details. So that when the criteria matches, alerts will be triggered to the configured mail id.
+
+* Splunk is an innovative technology which searches and indexes log files and helps organizations derive insights from the data. A main benefit of Splunk is that it uses indexes to store data, and so does not require a separate database to store its information.
+* Using splunk we can analyze logs in real time environment in web interface. Apart from logs splunk also provides many other features like monitoring, alerts etc.
+* To enable splunk logs, we need to add splunk configurations including server,index etc. Also need to add splunk libraries in our pom.xml file.
+* We can search the logs using the index we have configured and a keyword of our choice. We can also filter the logs timely like last 15 mins, last one hour, one week or one month etc.
+* Splunk also supports configuring the alerts based on the criteria. In Settings, we need to create the criteria and configure the SMTP details. So that when the criteria matches, alerts will be triggered to the configured mail id.
