@@ -176,3 +176,14 @@ Grafana allows you to bring data from various data sources like Elastic search, 
 * **@EnableTransactionManagement** - Spring introduced this annotation to use in a configuration class to enable transactional support.If we are using spring boot and have a spring-data or spring-tx dependencies on the class path, then transaction management will be enabled by defult.
 
 * At high level, spring creates proxies for all the classes annotated with @Transactional either on the class or any of the methods. 
+
+#### 37. Spring Security
+Security is nothing but the restricting the application access and functionalities. It provides both authentication and authorization. Security can be provided with different levels.
+* Username and Password authentication.
+* SSO/Okta/LDAP
+* App Level authorization
+* Intra app authorization like OAuth
+* Micro service security (using tokens or JWT)
+* Method level security 
+* 5 core concepts in Sprin security are i. Authentication ii. Authorization iii. Principal iv. Granted Authority v. Roles 
+
