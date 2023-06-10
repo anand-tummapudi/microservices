@@ -188,9 +188,12 @@ Security is nothing but the restricting the application access and functionaliti
 * 5 core concepts in Sprin security are i. Authentication ii. Authorization iii. Principal iv. Granted Authority v. Roles
 
 - **Authentication and Authorization-** Authentication is nothing but the identity to enter into the system. Authorization is the accessibility to perform cetain things in the system. Authentication can be knowledge based or pocession based. Knowledge based authentication is like username/password or the code to enter. Pocession based authentication is the smss otp or software or hardware token etc.
-- ** Principal - ** Currently logged in user. Once the user is authentiated an entered into the system, app assigns a unique principal to the user in the context.
+- ** Principal -** Currently logged in user. Once the user is authentiated an entered into the system, app assigns a unique principal to the user in the context.
 - **Roles and Authorities-** Roles are cooarse grained permissions or grouping of authorities. Fine grained permissions are authorities.
 
-* ** Adding Spring security to a spring boot application **.
-* If we add spring-boot-starter-security dependency to an applicationm it adds the security by default. Basically it adds interceptor filters and expects authentication to access each URL. By default, spring security will add certain thigs.
-- Adds mandatory authentication for URLs
+- **Adding Spring security to a spring boot application**.
+* If we add spring-boot-starter-security dependency to an applicationm it adds the security by default. Basically it adds interceptor filters and expects authentication to access each URL. By default, spring security will add certain thigs. It does not add authentication to certain urls like error pages. Because it doesn't need authentication to show error pages.
+- Adds mandatory authentication for URLs/ apis
+- It adds a login form
+- Handles login errors
+- Creates a default user and password, if the user doesn't provide any credentials. Default created user will be "user" and generated password will be printed in console. 
