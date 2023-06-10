@@ -193,7 +193,7 @@ Security is nothing but the restricting the application access and functionaliti
 
 - **Adding Spring security to a spring boot application**.
 * If we add spring-boot-starter-security dependency to an applicationm it adds the security by default. Basically it adds interceptor filters and expects authentication to access each URL. By default, spring security will add certain thigs. It does not add authentication to certain urls like error pages. Because it doesn't need authentication to show error pages.
-- Adds mandatory authentication for URLs/ apis
-- It adds a login form
-- Handles login errors
-- Creates a default user and password, if the user doesn't provide any credentials. Default created user will be "user" and generated password will be printed in console. 
+	- Adds mandatory authentication for URLs/ apis
+	- It adds a login form
+	- Handles login errors
+	- Creates a default user and password, if the user doesn't provide any credentials. Default created user will be "user" and generated password will be printed in console. 
