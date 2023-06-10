@@ -196,4 +196,11 @@ Security is nothing but the restricting the application access and functionaliti
 	- Adds mandatory authentication for URLs/ apis
 	- It adds a login form
 	- Handles login errors
-	- Creates a default user and password, if the user doesn't provide any credentials. Default created user will be "user" and generated password will be printed in console. 
+	- Creates a default user and password, if the user doesn't provide any credentials. Default created user will be "user" and generated password will be printed in console. We can provide the user name and password by adding the same in application.yaml file.
+	```
+	spring:
+		security:
+			user:
+				name: admin
+				password: admin
+	```
