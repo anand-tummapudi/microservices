@@ -204,4 +204,25 @@ Security is nothing but the restricting the application access and functionaliti
 				name: admin
 				password: admin
 	```
-* Adding Security 
+* Configuring Security using Authentication Manager 
+	- We create a configuration class which extends the WebSecurity configuration and here we can override the required methods and can add in-memory users allowed for authentication. Also we can add a been for Password encoder to encode the password and not allow clear text passwords.
+	-
+* Configuring Authorization in Spring security
+	- In Configuration class, we can enable the authorization by adding the access levels of different APIs with user roles.
+	```
+	@Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.authorizeRequests()
+                /*.antMatchers("/","static/css","static/js").permitAll()
+                .antMatchers("/**").hasAnyRole()*/
+                .antMatchers("/admin").hasRole("ADMIN")
+                .antMatchers("/user").hasAnyRole("USER","ADMIN")
+                .antMatchers("/").permitAll()
+                .and().formLogin();
+
+    }```
+* How does Speing Security works 
+	- Spring security works with the concept of filters added in servlets.
+	- In normal spring application, to implement security we need to addd the filter "org.springframework.web.filter.DelegatingFilterProxy" configurations manually in web.xml
+	- If we are working in spring boot application it automatically adds required dependencies.
+
