@@ -226,9 +226,11 @@ Security is nothing but the restricting the application access and functionaliti
 	- Spring security works with the concept of filters added in servlets.
 	- In normal spring application, to implement security we need to addd the filter "org.springframework.web.filter.DelegatingFilterProxy" configurations manually in web.xml
 	- If we are working in spring boot application it automatically adds required dependencies.
+
 * Authentication Manager interface
 	- It is a core interface that spring security uses for the authentication process. It has only one method authenticate which when implemented in a class that implements an Authentication Manager has all the logic for authenticating a user request.
 	- The authenticate method takes an “Authentication” object as its parameter and returns an “Authentication” object on successful authentication of the user or else we can have an exception thrown indicating that the user is not authenticated.
-	- Authentication Filter intercepts the authentication request, creates authentication object, sets the credentials and passes it to the Authentication manager. Authentication manager, finds the appropriate provider using supports method. Authenticate method will call UserDetails service get the user details and authenticate the user. Then it creates an authentication object with user principal and passes the authentication object all way back to authentication filter. Once the authentication filter receives the authentication obejct with principal then it stores it in a local thread. 
+	- Authentication Filter intercepts the authentication request, creates authentication object, sets the credentials and passes it to the Authentication manager. Authentication manager, finds the appropriate provider using supports method. Authenticate method will call UserDetails service get the user details and authenticate the user. Then it creates an authentication object with user principal and passes the authentication object all way back to authentication filter. Once the authentication filter receives the authentication obejct with principal then it stores it in a local thread.
+
 * Spring Boot and Spring Security with LDAP
 	- 
