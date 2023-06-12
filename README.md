@@ -233,5 +233,7 @@ Security is nothing but the restricting the application access and functionaliti
 	- Authentication Filter intercepts the authentication request, creates authentication object, sets the credentials and passes it to the Authentication manager. Authentication manager, finds the appropriate provider using supports method. Authenticate method will call UserDetails service get the user details and authenticate the user. Then it creates an authentication object with user principal and passes the authentication object all way back to authentication filter. Once the authentication filter receives the authentication obejct with principal then it stores it in a local thread.
 
 * Spring Boot and Spring Security with LDAP
-	- abcd
-	- bhojoi
+	- LDAP stands for Light weight Directory Access Protocol. This is a protocol for accessing and maintaining distributed directory information over an Internet Protocol network. LDAP is used to maintain information of an organization. A common use of LDAP is to provide a central place to store usernames and passwords. This allows many different applications and servies to connect to the LDAP server for validation.
+	- We can add ldap properties and configurations and enable the ldap authentication in Configuration class extending WebSecurity.
+* Spring Boot Security with JWT
+	- JWT stands for JSON Web Tokens.
