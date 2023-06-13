@@ -243,3 +243,11 @@ Security is nothing but the restricting the application access and functionaliti
 	
 * Providing Security for Microservices - at gateway level
 	- It is difficult and redundnt to provide the security at each service level in microservice environment. So we provide the security at API gateway level. But as per the architecture, gateway is just for routing the requests. So create a new service which can handle authentication and authorization of each service at gateway level.
+
+#### 38. Spring Batch
+Spring Batch is one of the core modules of spring framework and using this we can create robust batch processing system.
+* Key Components of Batch
+	- **Job Launcher -** JobLauncher interface is used to launch spring batch jobs. This is an entry point to initiate any job.
+	- **Job-** Once jabLauncher calls run() method, it creates another object called Job. Once JobLauncher intiates JOb, it calls another interface called Job repository which maintains the status of all the jobs whether it is success or fail.
+	- **Step-** Each job will have multiple steps and each step will have 3 actors Item Reader, Item Writer and Item Processor. Item reader, reads the data from input. Item Processor processes the data and Item writer writes the data to destination.
+	- Batch processing is used, when we want to process bulk data like dumping huge no of data files to data base or processing huge number of events,notifications or payments from backend.
