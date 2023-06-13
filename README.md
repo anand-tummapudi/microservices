@@ -235,5 +235,11 @@ Security is nothing but the restricting the application access and functionaliti
 * Spring Boot and Spring Security with LDAP
 	- LDAP stands for Light weight Directory Access Protocol. This is a protocol for accessing and maintaining distributed directory information over an Internet Protocol network. LDAP is used to maintain information of an organization. A common use of LDAP is to provide a central place to store usernames and passwords. This allows many different applications and servies to connect to the LDAP server for validation.
 	- We can add ldap properties and configurations and enable the ldap authentication in Configuration class extending WebSecurity.
+	- AD is active directory. It is used to authenticate and authorize all kind of comuters. AD is the active services database and LDAP is a way to talk to AD.
 * Spring Boot Security with JWT
-	- JWT stands for JSON Web Tokens.
+	- JWT stands for JSON Web Tokens. Auhorization strategies using tokens are i. Session token ii. JSON web token. The whole idea of JWT is sending some information to the server and the server will send the same information back to identify subsequent requests.
+	- JWT token does consists of 3 parts i. Header ii. Payload iii. Signature.
+	- JWT is meant for authorization.
+	
+* Providing Security for Microservices - at gateway level
+	- It is difficult and redundnt to provide the security at each service level in microservice environment. So we provide the security at API gateway level. But as per the architecture, gateway is just for routing the requests. So create a new service which can handle authentication and authorization of each service at gateway level.
