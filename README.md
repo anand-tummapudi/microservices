@@ -251,3 +251,9 @@ Spring Batch is one of the core modules of spring framework and using this we ca
 	- **Job-** Once jabLauncher calls run() method, it creates another object called Job. Once JobLauncher intiates JOb, it calls another interface called Job repository which maintains the status of all the jobs whether it is success or fail.
 	- **Step-** Each job will have multiple steps and each step will have 3 actors Item Reader, Item Writer and Item Processor. Item reader, reads the data from input. Item Processor processes the data and Item writer writes the data to destination.
 	- Batch processing is used, when we want to process bulk data like dumping huge no of data files to data base or processing huge number of events,notifications or payments from backend.
+	
+#### 39. Spring Boot Thread pool
+We can implement multi threading in spring boot using completable feature. Completable feature is introduced in Java8.Using [Generate Mock Data](https://www.mockaroo.com/) we can generate test data.
+- **@EnableAsync-** This annotation informs springboot to run the application in the background.
+- **CompletableFuture-** CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.  
+- **@Configuration-** Spring Boot lets you externalize your configuration so that you can work with the same application code in different environments. You can use properties files, YAML files, environment variables, and command-line arguments to externalize configuration.
