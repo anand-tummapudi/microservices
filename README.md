@@ -10,7 +10,15 @@ Spring Initializr is a website or web-based tool used to set up Spring Boot proj
 * @ResponseBody -
 	Whatever the methods we define in the control to make as rest end points. So we want to send the response in the body either in json,xml or any other data structure format.  
 * @RequestMapping -
-	Attach the method defined inside controller to any of the end points.
+	Simply put, the annotation is used to map web requests to Spring Controller methods.
+* @Component - 
+	Acts as @Bean annotation in configuration class, register bean in spring context. Also it is parent for @Service, @Repository and @Controller annotation.
+* @Service -
+	extends @Component annotation and has only naming difference.
+* @Repository - 
+	extends @Component annotation and translate all database exceptions into DataAccessException.
+* @Controller -
+	Acts as controller in MVC pattern. The dispatcher will scan such annotated classes for mapped methods, detecting @RequestMapping annotations.
 #### 4. What is spring boot starter project?	
 Starters are a set of convenient dependency descriptors that you can use to bootstrap your spring applications.It contain a lot of predefined dependencies with supported set of transitive dependencies. All Spring boot starters follow the same naming convention for easy search.All the starters start with spring-boot-starter-*
 #### 5. @SpringBootApplication annotation
@@ -171,7 +179,10 @@ Grafana allows you to bring data from various data sources like Elastic search, 
 * Splunk also supports configuring the alerts based on the criteria. In Settings, we need to create the criteria and configure the SMTP details. So that when the criteria matches, alerts will be triggered to the configured mail id.
 
 #### 36. Spring and JPA Transactions
-* **@Transactional** - With transactions configured, we can now annotate a bean with @transactional either at the class or method level.This annotation supports further configurations likepropagation type, isolation level, timeout for the operation, readonly flag and also the rollback rules of the transaction. By default rollback happens for runtime and unchecked exceptions only. The checked exceptions does not trigger a rollback. However we can configure this behavior with the rollbackFor and noRollbackFor parameters.Only public methods should be annotated with @Transactional. Methods of any other visibility would be simply ignored. 
+
+Basically, there are two distinct ways to configure Transactions, annotations and AOP, each with its own advantages.
+
+* **@Transactional** - With transactions configured, we can now annotate a bean with @transactional either at the class or method level. This annotation supports further configurations like propagation type, isolation level, timeout for the operation, readonly flag and also the rollback rules of the transaction. By default rollback happens for runtime and unchecked exceptions only. The checked exceptions does not trigger a rollback. However we can configure this behavior with the rollbackFor and noRollbackFor parameters. Only public methods should be annotated with @Transactional. Methods of any other visibility would be simply ignored. 
 
 * **@EnableTransactionManagement** - Spring introduced this annotation to use in a configuration class to enable transactional support.If we are using spring boot and have a spring-data or spring-tx dependencies on the class path, then transaction management will be enabled by defult.
 
@@ -257,3 +268,4 @@ We can implement multi threading in spring boot using completable feature. Compl
 - **@EnableAsync-** This annotation informs springboot to run the application in the background.
 - **CompletableFuture-** CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.  
 - **@Configuration-** Spring Boot lets you externalize your configuration so that you can work with the same application code in different environments. You can use properties files, YAML files, environment variables, and command-line arguments to externalize configuration.
+
