@@ -285,4 +285,29 @@ We can implement multi threading in spring boot using completable feature. Compl
 	- **Excepion Handling** - Exception handling is easy.
 	- **AOP** - Spring supports aspect oriented programming, a paradigm that seprates appplication business logic from system services.
 - Modules of Spring framework
-	- Spring Core, Spring Bean, SpEL, Spring Context, JDBC, ORM, OXM, JMS, Transaction, Web, Web MVC, Web Socket, WebPortlet
+	- Spring Core, Spring Bean, SpEL, Spring Context, JDBC, ORM, OXM, JMS, Transaction, Web, Web MVC, Web Socket, WebPortlet etc.
+- Different components of Spring application.
+	- Spring application contains 5 components.
+	- **Interface** - Defines program functions.
+	- **Bean Class** - Contains properties, setter and getter methods for accessing the bean.
+	- **Spring AOP** - Includes cross cutting concerns functionality. 
+	- **Bean Configuration file** - Contains the information of classes, how to configure them  define their relationships.
+	- **User program** - Calls functions across the program.
+- **Spring IOC Container** - An IOC container creates, configures and connects objects while also managing their lifecycle. The cotainer gets instructions on these areas from configuration metadata given by the user.
+- ** Different types of IOC** - 
+	- Bean Factory Container - This factory class contains a prepackaged collection of beans that instantiate when called by clients. This is the most basic container to support DI. 
+	- Applicaion Context Container - Built on top of the Bean Factory Container. This container provides additional enterprise focused functionalities.
+- ** Different Bean sopes supported by Spring **
+		- Singleton - Scopes a bean definition to be restricted to a single instance per container.
+		- Prototype - Scopes a single bean to enable any number of instances.
+		- Request - Scopes a bean definition to a single HTTP request within an application context.
+		- Session - Scopes a bean definition to an HTTP session within an application context.
+		- Global - session - Scopes a bean definition to a Global HTTP.
+- ** Bean Lifecycle**
+		- Instantiate - The bean is instantiated by the Spring container using the bean's definition.
+		- Populate Properties - Spring populates all the defined properties from the XMl file using dependency injection.
+		- Set Bean Name - Spring passes the bean's identifier to the setBeanName() method if bean uses the BeanNameAware interface.
+		- Set Bean Factory - Spring passes the bean factory to the setBeanFactory() method if the bean is configured to use the BeanFactoryAware interface.
+		- Pre Intialization - Spring calls any bean post processor associated with the bean using the postProcessorBeforeInitialization() method.
+		- Initialization - The bean is then initialized. Any special initialization process specified in the init-method is followed.
+		- Post Initialization - All defined postProcessAfterInitialization() methods are called. Now the bean is complete. Beans that implement DisposableBean will be deleted using destroy() after their job is finished.
