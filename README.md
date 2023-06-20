@@ -89,7 +89,12 @@ Micro services are maintained by using two different repositories types. The adv
 2. **Poly Repo** - Each service will be deployed in an independent repository. We maintain independent repository and deploytment and working would be easy. But the problem here is that we need to clone all the repositories separately and maintain the code.
 #### 23. Microservice patterns.
 1. **API Gateway Pattern**: A single entry point for all client requests, which then routes those request to the appropriate microservices. API gateway is responsible for authenticating and authorizing the each service, there will not be any direct call to service and everything is through the API gateway.
-2. **Circuit Breaker Pattern**: This pattern is used to handle failures in a microservice architecture. When a microservice fails or become unresponsive, the circuit breaker tips and redirects requests to a fallback service.
+- We add api gateway dependencies in the application and add the configurations in application.yaml file. We add routes configuration for all the services.
+- Configure rate limiter to allow number of requests in a given interval of time. This can be configured using redis in memory database.
+2. **Circuit Breaker Pattern**: This pattern is used to handle failures in a microservice architecture. When a microservice fails or become unresponsive, the circuit breaker tips and redirects requests to a fallback service. We can add the configurations for circuit breaker for adding the different states like open,closed and half open both time based or retries based. 
+- circuit breaker would be added at API gateway level in the routers part for each service configures in the routes.
+- We can also add a fallback service at API gateway level in case the requested service is not coming up even after specified threshold retries. We add the fallback service as a filter at each service level in the API gateway configuration.
+ 
 3. **Service Registry Pattern**: This pattern is used to keep track of all the services in a microservice architecture. The registry acts as a central directory for service discovery.
 Eureka server is one example for implementing service registry. 
 4. **Service Mesh Pattern**: This pattern in adding a layer of infrastructure between microservices to handle cross-cutting concerns such as service discovery, load balancing and security.
@@ -251,11 +256,12 @@ Security is nothing but the restricting the application access and functionaliti
 	- AD is active directory. It is used to authenticate and authorize all kind of comuters. AD is the active services database and LDAP is a way to talk to AD.
 * Spring Boot Security with JWT
 	- JWT stands for JSON Web Tokens. Auhorization strategies using tokens are i. Session token ii. JSON web token. The whole idea of JWT is sending some information to the server and the server will send the same information back to identify subsequent requests.
-	- JWT token does consists of 3 parts i. Header ii. Payload iii. Signature.
+	- JWT token does consists of 3 parts i. Header ii. Payload/Body iii. Signature.
 	- JWT is meant for authorization.
 	
 * Providing Security for Microservices - at gateway level
 	- It is difficult and redundnt to provide the security at each service level in microservice environment. So we provide the security at API gateway level. But as per the architecture, gateway is just for routing the requests. So create a new service which can handle authentication and authorization of each service at gateway level.
+	- We can also provide the scope for the accessibility of service. For example if we have an order service and payment service, we can restrict the access to call payment gateway service only from the order service and restrict the access from any other sources.
 
 #### 38. Spring Batch
 Spring Batch is one of the core modules of spring framework and using this we can create robust batch processing system.
@@ -271,3 +277,12 @@ We can implement multi threading in spring boot using completable feature. Compl
 - **CompletableFuture-** CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.  
 - **@Configuration-** Spring Boot lets you externalize your configuration so that you can work with the same application code in different environments. You can use properties files, YAML files, environment variables, and command-line arguments to externalize configuration.
 
+## 40. Spring Interview Questions
+- Spring framework is an open source application framework and inversion of control container written in java. This allows developers to focus on business logic. Spring is also very adoptable with many extention modules.
+- Benefits of Spring framework are
+	- **Lightweight** - It is lightweight in resource use.
+	- **Scalable** - Spring's transaction management interface can scale to either a local transaction on a single database to global transactions using the JTA module.
+	- **Excepion Handling** - Exception handling is easy.
+	- **AOP** - Spring supports aspect oriented programming, a paradigm that seprates appplication business logic from system services.
+- Modules of Spring framework
+	- Spring Core, Spring Bean, SpEL, Spring Context, JDBC, ORM, OXM, JMS, Transaction, Web, Web MVC, Web Socket, WebPortlet
