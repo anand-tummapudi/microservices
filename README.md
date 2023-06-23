@@ -288,6 +288,7 @@ Spring has a feature called Spring profile to maintain different properties for 
 - For adding validations, we need to add spring validation dependency.
 - In the input request object, we need to add required validations. Ex: @NotNull(message="Username should not be Null")
 - If we implement validations, in case of any validation failure it returns MethodArgumentNotValidException.
+- We can create a controller advise to handle the respective exception and from that handler method, we can parse all the error codes and error messages.
 
 
 ## 42. Spring Interview Questions
