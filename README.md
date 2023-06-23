@@ -277,7 +277,20 @@ We can implement multi threading in spring boot using completable feature. Compl
 - **CompletableFuture-** CompletableFuture is used for asynchronous programming in Java. Asynchronous programming is a means of writing non-blocking code by running a task on a separate thread than the main application thread and notifying the main thread about its progress, completion or failure.  
 - **@Configuration-** Spring Boot lets you externalize your configuration so that you can work with the same application code in different environments. You can use properties files, YAML files, environment variables, and command-line arguments to externalize configuration.
 
-## 40. Spring Interview Questions
+#### 40. Spring Boot Profiles
+Spring has a feature called Spring profile to maintain different properties for different environments. We can create different configuration files by naming "application-<environment/test/dev/sit/uat>.yaml" for diffeernt environments and tell Spring which profile to consider. By default the default profile will be active, we can inform spring to consider which profile to take for building by adding a property **spring.profiles.active** in application.yaml file.
+- **Selecting Beans by Profile-** We can specify a bean to be, profile specific by ading @Profile("") annotation on top of the bean.
+- We can also have an environment specific profile by providing the profile name during run time.
+ `` > java -jar spring-boot-config-0.0.1-SNAPSHOT.jar --spring.profile.active=dev``
+-  **Environment Object-** It profile more control over the profile. We can create a bean named Environment and can inject this.
+
+#### 41. Spring Boot Validations 
+- For adding validations, we need to add spring validation dependency.
+- In the input request object, we need to add required validations. Ex: @NotNull(message="Username should not be Null")
+- If we implement validations, in case of any validation failure it returns MethodArgumentNotValidException.
+
+
+## 42. Spring Interview Questions
 - Spring framework is an open source application framework and inversion of control container written in java. This allows developers to focus on business logic. Spring is also very adoptable with many extention modules.
 - Benefits of Spring framework are
 	- **Lightweight** - It is lightweight in resource use.
@@ -294,16 +307,17 @@ We can implement multi threading in spring boot using completable feature. Compl
 	- **Bean Configuration file** - Contains the information of classes, how to configure them  define their relationships.
 	- **User program** - Calls functions across the program.
 - **Spring IOC Container** - An IOC container creates, configures and connects objects while also managing their lifecycle. The cotainer gets instructions on these areas from configuration metadata given by the user.
-- ** Different types of IOC** - 
+- **Different types of IOC** - 
 	- Bean Factory Container - This factory class contains a prepackaged collection of beans that instantiate when called by clients. This is the most basic container to support DI. 
 	- Applicaion Context Container - Built on top of the Bean Factory Container. This container provides additional enterprise focused functionalities.
-- ** Different Bean sopes supported by Spring **
+- **Different Bean sopes supported by Spring **
 		- Singleton - Scopes a bean definition to be restricted to a single instance per container.
 		- Prototype - Scopes a single bean to enable any number of instances.
 		- Request - Scopes a bean definition to a single HTTP request within an application context.
 		- Session - Scopes a bean definition to an HTTP session within an application context.
 		- Global - session - Scopes a bean definition to a Global HTTP.
-- ** Bean Lifecycle**
+		- By default all the spring beans are singleton. The instance of the singleton bean will be automatically created and it will be available in the container. In case of prototype, the default instance will not be created by default and a new instance would be created on each objct call.
+- **Bean Lifecycle**
 		- Instantiate - The bean is instantiated by the Spring container using the bean's definition.
 		- Populate Properties - Spring populates all the defined properties from the XMl file using dependency injection.
 		- Set Bean Name - Spring passes the bean's identifier to the setBeanName() method if bean uses the BeanNameAware interface.
