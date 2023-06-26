@@ -1,6 +1,7 @@
 package com.anand.spring.validation.dto;
 
 
+import com.anand.spring.validation.validators.ValidateEmployeeType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,5 +26,8 @@ public class UserRequest {
     private int age;
     @NotBlank
     private String nationality;
+    
+    @ValidateEmployeeType
+    private String employeeType;
 
 }

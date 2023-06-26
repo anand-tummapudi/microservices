@@ -289,7 +289,7 @@ Spring has a feature called Spring profile to maintain different properties for 
 - In the input request object, we need to add required validations. Ex: @NotNull(message="Username should not be Null")
 - If we implement validations, in case of any validation failure it returns MethodArgumentNotValidException.
 - We can create a controller advise to handle the respective exception and from that handler method, we can parse all the error codes and error messages.
-
+- We can also create our custom validatros. To do that we need to create our own annotation for the validation type. In the annotation we needto annotate it with @Contraint and specify the validator class where we define the validation logic. The validation class implements ConstraintValidator interface and overrides the isValid() method. In the employe request class, we can mark the property with the custom validator annotation.
 
 ## 42. Spring Interview Questions
 - Spring framework is an open source application framework and inversion of control container written in java. This allows developers to focus on business logic. Spring is also very adoptable with many extention modules.
