@@ -26,7 +26,7 @@ public class UserRequest {
     private int age;
     @NotBlank
     private String nationality;
-    
+
     @ValidateEmployeeType
     private String employeeType;
 

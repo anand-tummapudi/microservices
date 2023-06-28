@@ -19,7 +19,8 @@ Spring Initializr is a website or web-based tool used to set up Spring Boot proj
 	extends @Component annotation and translate all database exceptions into DataAccessException.
 * @Controller -
 	Acts as controller in MVC pattern. The dispatcher will scan such annotated classes for mapped methods, detecting @RequestMapping annotations.
-* @Value -
+* @Value - 
+	Is used to read the values from the properties file or runtime parameters.
 		
 #### 4. What is spring boot starter project?	
 Starters are a set of convenient dependency descriptors that you can use to bootstrap your spring applications.It contain a lot of predefined dependencies with supported set of transitive dependencies. All Spring boot starters follow the same naming convention for easy search.All the starters start with spring-boot-starter-*
@@ -100,6 +101,7 @@ Eureka server is one example for implementing service registry.
 4. **Service Mesh Pattern**: This pattern in adding a layer of infrastructure between microservices to handle cross-cutting concerns such as service discovery, load balancing and security.
 5. **Event Driven Architecture Pattern**: This pattern involves in using events to communicate between microservices. Each service can publish events and subscribe to events published by another service.
 6. **Saga Pattern**: This pattern is used to manage transactions that span multiple microservices. It involves breaking the transaction into smaller, individual steps and using compensating actions to undo completed steps if an error occurs. In Saga pattern, we have 2 types i. Choreography and ii. Orchestration.
+	- 
 7. **Bulkhead Pattern**: This pattern is used to isolate failures in a microservice architecture. Each microservice is placed in a separate container, so if one micro service fails, it does not affect other microservices.
 8. **Sidecar Pattern**: This pattern involves in deploying a separate container alongside each microservice to handle cross-cutting concerns such as logging, monitoring and security.
 9. **CQRS Pattern**: CQRS stands for Command and Query Responsibility Segregation. A pattern that involves separating the read and write models in a microservice architecture. The read model is optimized for querying data, while the write model is optimized for updating data.
