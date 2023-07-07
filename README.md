@@ -95,13 +95,11 @@ Micro services are maintained by using two different repositories types. The adv
 2. **Circuit Breaker Pattern**: This pattern is used to handle failures in a microservice architecture. When a microservice fails or become unresponsive, the circuit breaker tips and redirects requests to a fallback service. We can add the configurations for circuit breaker for adding the different states like open,closed and half open both time based or retries based. 
 - circuit breaker would be added at API gateway level in the routers part for each service configures in the routes.
 - We can also add a fallback service at API gateway level in case the requested service is not coming up even after specified threshold retries. We add the fallback service as a filter at each service level in the API gateway configuration.
- 
 3. **Service Registry Pattern**: This pattern is used to keep track of all the services in a microservice architecture. The registry acts as a central directory for service discovery.
 Eureka server is one example for implementing service registry. 
 4. **Service Mesh Pattern**: This pattern in adding a layer of infrastructure between microservices to handle cross-cutting concerns such as service discovery, load balancing and security.
 5. **Event Driven Architecture Pattern**: This pattern involves in using events to communicate between microservices. Each service can publish events and subscribe to events published by another service.
 6. **Saga Pattern**: This pattern is used to manage transactions that span multiple microservices. It involves breaking the transaction into smaller, individual steps and using compensating actions to undo completed steps if an error occurs. In Saga pattern, we have 2 types i. Choreography and ii. Orchestration.
-	- 
 7. **Bulkhead Pattern**: This pattern is used to isolate failures in a microservice architecture. Each microservice is placed in a separate container, so if one micro service fails, it does not affect other microservices.
 8. **Sidecar Pattern**: This pattern involves in deploying a separate container alongside each microservice to handle cross-cutting concerns such as logging, monitoring and security.
 9. **CQRS Pattern**: CQRS stands for Command and Query Responsibility Segregation. A pattern that involves separating the read and write models in a microservice architecture. The read model is optimized for querying data, while the write model is optimized for updating data.
