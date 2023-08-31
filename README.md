@@ -324,7 +324,7 @@ Spring has a feature called Spring profile to maintain different properties for 
 - **Different types of IOC** - 
 	- Bean Factory Container - This factory class contains a prepackaged collection of beans that instantiate when called by clients. This is the most basic container to support DI. 
 	- Applicaion Context Container - Built on top of the Bean Factory Container. This container provides additional enterprise focused functionalities.
-- **Different Bean sopes supported by Spring **
+- **Different Bean sopes supported by Spring**
 		- Singleton - Scopes a bean definition to be restricted to a single instance per container.
 		- Prototype - Scopes a single bean to enable any number of instances.
 		- Request - Scopes a bean definition to a single HTTP request within an application context.
