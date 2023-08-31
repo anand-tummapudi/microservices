@@ -183,7 +183,7 @@ Prometheus is an opensource monitoring system that was originally built by Sound
 - **Configuration Management** tools allows you to automate the provisioning and deployment of the systems enforce desired configuration. It allows you to modelling your infrastucture as code you can apply software delivery practices like version control, automated testing and continouls delivery to infrastructure and applications. Some of these tools are ansible, chef, puppet. Ansible is written in python. Chef is written in Ruby.
 - **Alerting Tools** provides both actionable and informational system alerts and can be customized to fit the complexities of your system. Examples are Pager duty, Service Now and Slack. Slack allows you to consolidate alerts into the same platform you use for group chats and collaboration.
 - **Metric Storage** Once you done with automation configuration and alerting tools you will have a whole lot of data at your disposal to learn from the challenge is how you securely store and analyze it. Examples of such storage systems are influxdb, splunk and aws. influx db is a database that is suited for long term data storage. Splunk uses a search engine database model to store and query data. AWS supports a wide rangeof storage purposes including relational and non relational database.
-- ** Visualization tools** combines all of your data here sort and finally visualize it i.e display it in customizable dashboards. They provide context and meaning that allow you to track changes and improvements over time. They also give management the real time view that helps guide strategic decisions, customization options make it easy for team members to design and share their own dashboard. One of these tools is Grafana.  Grafana can be used on top of different types of data stored including graphite, influxdb and elastic search.
+- **Visualization tools** combines all of your data here sort and finally visualize it i.e display it in customizable dashboards. They provide context and meaning that allow you to track changes and improvements over time. They also give management the real time view that helps guide strategic decisions, customization options make it easy for team members to design and share their own dashboard. One of these tools is Grafana.  Grafana can be used on top of different types of data stored including graphite, influxdb and elastic search.
 
 - **Grafana** is a continuous monitoring tool to visualize your real-time data in an application so you can visualize your data and understand how it is working in real time.   
 - Grafana allows you to bring data from various data sources like Elastic search, Prometheus, Graphite, InfluxDB etc. and visualize them with beautiful graphs. It also lets you set alert rules based on your metrics data. When an alert changes state, it can notify you over email, slack, or various other channels.
@@ -253,7 +253,7 @@ Security is nothing but the restricting the application access and functionaliti
 
     }
 	```
-* How does Speing Security works 
+* How does Spring Security works 
 	- Spring security works with the concept of filters added in servlets.
 	- In normal spring application, to implement security we need to addd the filter "org.springframework.web.filter.DelegatingFilterProxy" configurations manually in web.xml
 	- If we are working in spring boot application it automatically adds required dependencies.
