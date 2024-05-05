@@ -1,5 +1,5 @@
 # Microservices
-Here i would like to cover certain required topics and questions arise during development or in an interview with respect to microservices development using Spring boot.
+Here i would like to cover certain required topics and questions arise during the development or in an interview with respect to microservices development using Spring boot.
 #### 1. What is dependency Injection?
 IOC means giving the control back to framework. Spring framework uses IOC pattern to achieve DI. Instead of creating and calling the required dependent objects, spring framework takes the responsibility of creating all the required objects and make it available in the container.
 #### 2. What is Spring Initializer?
@@ -28,8 +28,8 @@ Starters are a set of convenient dependency descriptors that you can use to boot
 It contains the functionality of 3 annotations. @SpringBootConfiguration - to do all auto configurations, @EnableAutoConfiguration - to enable automatic configuration and @ComponentScan to scan all the application components and load them to the container to make it available to the application in the run time. 
 #### 6. Embedded servers in spring boot application
 Spring boot application contains an embedded server as a single jar file and it can be used to deploy and run the application. By default spring boot supports 3 servers tomcat, jetty and undertow.By default spring boot web application adds tomcat server. If we want to change the server, we need to exclude the tomcat dependency and add the required other server (jetty or undertow) dependency.By default application supports port 8080. If we want to change the default port, we need to add a property "server.port" in application.properties file. 
-#### 7. Spring boot activators
-Spring boot activators are the tools to monitor the application. To enable actuators, we just need to add the actuator dependency in our pom.xml. Once we add the dependency and restart the application, we can see one default end point with /actuator in the application.
+#### 7. Spring boot actuators
+Spring boot actuators are the tools to monitor the application. To enable actuators, we just need to add the actuator dependency in our pom.xml. Once we add the dependency and restart the application, we can see one default end point with /actuator in the application.
 #### 8. Spring dev tools
 Dev tools Provides fast application restarts, LiveReload, and configurations for enhanced development experience. Application will be automatically refreshed whenever there is a change in the resources. To enable dev tools, we just need to add dev tools dependency in our pom.xml file of our application. To enable this feature to your application, in IntellijIdea goto File->Settings->Build,Execution,Deployment->Compiler-> Select the checkbox 'Build project automatically'. Goto Advaced Settings -> select checkbox 'Allow auto-make to start even if developed application is currently running'.
 #### 9. Restfull Webservices
@@ -69,7 +69,7 @@ This feature is importent when we are exposing our services to outside world. Th
 - query parameters - passing the version of api in request parameters
 - http headers - passing the version of api in http headers.
 #### 19. ORM - JPA
-Object relational mapping framework is used to map the relations/tables in a relatinal database with POJOs. By default spring supports hibernate implemented in JPA. Spring also supports non relational databases like MongoDb by extending MangoRepository, this internally will extend JPA repository only.
+Object relational mapping framework is used to map the relations/tables in a relatinal database with POJOs. By default spring supports hibernate implemented in JPA. Spring also supports non relational databases like MongoDb by extending MongoRepository, this internally will extend JPA repository only.
 - The basic building blocks while implementing JPA are ..
  *Entity - nothing but a pojo mapping to a table
  *Id - @Id value, a pojo property representing an unique id for a row in the entity
@@ -85,8 +85,8 @@ Object relational mapping framework is used to map the relations/tables in a rel
 If more than one bean of the same type is available in the container, the framework will throw NoUniqueBeanDefinitionException, indicating that more than one bean is available for autowiring. By using the @Qualifier annotation, we can eliminate the issue of which bean needs to be injected. While we have multiple implementation classes of same interface and while autowiring the service instance, compiler will confuse which one to inject. So we need to add @Qualifier marker with qualified name in the implementation class injection and even while using/autowiring the same service inside the controller.
 #### 22. What are java micro services.
 Java microservices are a set of software applications written in the Java programming language designed for limited scope that work with each other to form a bigger solution.
-Micro services are maintained by using two different repositories types. The advantage with micro services is we can develop each application using different technologies like java,python,dotnet etc. and we can communicate with each other using a protocol like HTTP. We can use broker architecture or messaging system to pass the data between two different services.
-1. **Mono Repo** - All the services are different but are deployed in same repository. Advantage is we can maintain all the sources in the single repository with different folders. But the issue with this architecture is that, deployement using CI/CD pipeline. There are tools which doesn't allow multiple deployments from same repository and we need to add workarounds to maintain it.
+Micro services are maintained by using two different repository types. The advantage with micro services is we can develop each application using different technologies like java,python,dotnet etc. and we can communicate with each other using a protocol like HTTP. We can use broker architecture or messaging system to pass the data between two different services.
+1. **Mono Repo** - All the services are different but are deployed in the same repository. Advantage is we can maintain all the sources in the single repository with different folders. But the issue with this architecture is that, deployement using CI/CD pipeline. There are tools which doesn't allow multiple deployments from same repository and we need to add workarounds to maintain it.
 2. **Poly Repo** - Each service will be deployed in an independent repository. We maintain independent repository and deploytment and working would be easy. But the problem here is that we need to clone all the repositories separately and maintain the code.
 #### 23. Microservice patterns.
 1. **API Gateway Pattern**: A single entry point for all client requests, which then routes those request to the appropriate microservices. API gateway is responsible for authenticating and authorizing the each service, there will not be any direct call to service and everything is through the API gateway.
